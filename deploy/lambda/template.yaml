@@ -11,6 +11,7 @@ Globals:
       Variables:
         MODEL: gemini/gemini-2.5-flash
         LITELLM_LOCAL_MODEL_COST_MAP: "True"
+        TIKTOKEN_CACHE_DIR: "/tmp"
 
 Resources:
   InterviewAgentFunction:
