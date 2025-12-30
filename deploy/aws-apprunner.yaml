@@ -1,0 +1,23 @@
+# AWS App Runner Configuration
+# Deploy with: aws apprunner create-service --cli-input-yaml file://aws-apprunner.yaml
+
+ServiceName: interview-agent-api
+SourceConfiguration:
+  ImageRepository:
+    ImageIdentifier: <AWS_ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com/interview-agent:latest
+    ImageRepositoryType: ECR
+    ImageConfiguration:
+      Port: "8000"
+      RuntimeEnvironmentVariables:
+        MODEL: "gemini/gemini-2.5-flash"
+  AutoDeploymentsEnabled: true
+InstanceConfiguration:
+  Cpu: "0.25 vCPU"
+  Memory: "0.5 GB"
+HealthCheckConfiguration:
+  Protocol: HTTP
+  Path: /health
+  Interval: 10
+  Timeout: 5
+  HealthyThreshold: 1
+  UnhealthyThreshold: 5

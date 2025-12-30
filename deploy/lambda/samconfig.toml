@@ -1,0 +1,16 @@
+# SAM CLI Configuration
+# Run: sam deploy --guided (first time)
+# Then: sam deploy (subsequent deploys)
+
+version = 0.1
+
+[default.deploy.parameters]
+stack_name = "interview-agent-api"
+resolve_s3 = true
+s3_prefix = "interview-agent-api"
+region = "us-east-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+
+[default.build.parameters]
+use_container = false
